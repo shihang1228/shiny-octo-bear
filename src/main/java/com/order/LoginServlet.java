@@ -11,8 +11,6 @@ public class LoginServlet extends HttpServlet
 {
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException
     {
-        resp.setCharacterEncoding("UTF-8");
-        resp.setContentType("text/html;charset=UTF-8");
         forward("register",req,resp);
         
     }
