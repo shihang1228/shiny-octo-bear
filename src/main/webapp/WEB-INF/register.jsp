@@ -8,7 +8,7 @@
         <h1 align="center">网上订餐管理系统<h1>
         </div>
         <div style="width:250px;height:450px; background-color:red;text-transform:uppercase;font-wehtht:bold;position: absolute; left: 180px; top:200px; ">
-        <form>
+        <form action="login" method="POST">
             <table align="center">
                 <h1 align="center">用户登录</h1>
                 <tr>
@@ -30,7 +30,7 @@
             <h1 align="center">本周优惠活动</h1>
         </div>
         <div style="width:720px;height:450px; background-color:yellow;text-transform:uppercase;font-wehtht:bold;position: absolute; left: 450px; top:200px; ">
-            <form align="center">
+            <form  action="login" method="POST" align="center">
                 <h1>用户注册</h1>
                 <table align="center">
                     <tr>
@@ -55,7 +55,7 @@
                     </tr>
                     <tr>
                         <th align="right">性别：</th>
-                        <td><input type="radio" name="sex" value="male"/>男
+                        <td><input type="radio" name="sex" value="male" checked = "checked"/>男
                             <input type="radio" name="sex" value="female"/>女</td>
                     </tr>
                     <tr>
@@ -67,7 +67,7 @@
                         <td><input type="text" name="mail"/></td>
                     </tr>
                     <tr>
-                        <td colspan="2"><input type="submit" name="action" value="注册"/>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                        <td colspan="2"><input type="submit" name="action" value="register"/>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
                         <input type="reset" name="action" value="取消"/></td>                      
                     </tr>
                 </table>
