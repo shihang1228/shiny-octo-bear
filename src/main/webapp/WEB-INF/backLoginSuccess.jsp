@@ -2,8 +2,10 @@
 <html>
 <head>
 <title>后台登录成功</title>
+<meta http-equiv="refresh" content="3;URL=">
 </head>
 <body>
-<h1 align="center">恭喜您，登录成功！！！<a href="">返回首页</a></h1>
+<h1 align="center">恭喜您，登录成功！！！</h1>
+<p align="center">请稍等3秒，如果没有跳转请点击这里：<a href="">here</a></p>
 </body>
 </html>
