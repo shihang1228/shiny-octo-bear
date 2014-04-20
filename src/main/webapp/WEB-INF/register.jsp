@@ -13,11 +13,11 @@
                 <h1 align="center">用户登录</h1>
                 <tr>
                     <th align="right">用户名：</th>
-                    <td><input type="text" name="user_name"/></td>
+                    <td><input type="text" name="login_user_name"/></td>
                 </tr>
                 <tr>
                     <th align="right">密码：</th>
-                    <td><input type="password" name="password"/></td>
+                    <td><input type="password" name="login_password"/></td>
                 </tr>
                 <tr>
                     <td colspan="2"><input type="submit" name="action" value="登录"/>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
@@ -67,7 +67,7 @@
                         <td><input type="text" name="mail"/></td>
                     </tr>
                     <tr>
-                        <td colspan="2"><input type="submit" name="action" value="register"/>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                        <td colspan="2"><input type="submit" name="action" value="注册"/>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
                         <input type="reset" name="action" value="取消"/></td>                      
                     </tr>
                 </table>
