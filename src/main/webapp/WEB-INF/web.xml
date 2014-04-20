@@ -20,6 +20,15 @@
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
     
+    <servlet>
+    <servlet-name>backlogin</servlet-name>
+    <servlet-class>com.order.BackLoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+    <servlet-name>backlogin</servlet-name>
+    <url-pattern>/backlogin</url-pattern>
+    </servlet-mapping>
+    
     <filter>
         <filter-name>pageEncoding</filter-name>
         <filter-class>com.order.PageEncodingFilter</filter-class>
