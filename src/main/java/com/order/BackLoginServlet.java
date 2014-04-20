@@ -24,6 +24,10 @@ public class BackLoginServlet extends HttpServlet
             session.setAttribute("memberId",0L);
             forward("backLoginSuccess",req,resp);
         }
+        else
+        {
+            forward("backLoginFailed",req,resp);
+        }
     }
     public void forward(String page,HttpServletRequest req,HttpServletResponse resp)throws ServletException,IOException
     {
