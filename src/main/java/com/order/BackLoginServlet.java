@@ -12,7 +12,16 @@ public class BackLoginServlet extends HttpServlet
 {
     public void doGet(HttpServletRequest req, HttpServletResponse resp)throws ServletException,IOException
     {
-        forward("backLogin",req,resp);
+        if(isNotLogin(req,resp))
+        { 
+            forward("backLogin",req,resp);
+        }
+        else
+        {
+            
+        }
+
+        
     }
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException,IOException
     {
@@ -33,5 +42,11 @@ public class BackLoginServlet extends HttpServlet
     {
         String jsp = "/WEB-INF/" + page + ".jsp";
         getServletContext().getRequestDispatcher(jsp).forward(req,resp);
+    }
+    public boolean isNotLogin(HttpServletRequest req , HttpServletResponse resp)
+    {
+        HttpSession session = req.getSession();
+        Long memberId = (Long)session.getAttribute("memberId");
+        return memberId==null;
     }
 }
