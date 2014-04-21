@@ -1,9 +1,13 @@
 package com.order;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
+import java.sql.PreparedStatement; 
+import java.sql.Statement;
+import java.sql.ResultSet;
 import java.util.Date;
+import java.util.ArrayList;
 import java.sql.SQLException;
+
 
 public class UserDao
 {
@@ -54,6 +58,53 @@ public class UserDao
         }
         
         
+    }
+    
+    public ArrayList<UserVo> memberList()
+    {
+        DbManage dbManage = null;
+        Connection conn = null;
+        Statement stmt = null;
+        ResultSet rs = null;
+        UserVo user = null;
+        ArrayList<UserVo> list = new ArrayList<UserVo>();
+        try
+        {
+            dbManage = dbManage.newInstance();
+            stmt = dbManage.conn.createStatement();
+            
+            String sql = "SELECT * FROM member_info";
+            
+            rs = stmt.executeQuery(sql);
+            while(rs.next())
+            {
+                user = new UserVo();
+                
+                user.setUserId(rs.getLong("user_id"));
+                user.setUserName(rs.getString("user_name"));
+                user.setUserPassword(rs.getString("password"));
+                user.setRepeatPassword(rs.getString("repeat_password"));
+                user.setUserTrueName(rs.getString("true_name"));
+                user.setUserAddress(rs.getString("address"));
+                user.setUserSex(rs.getString("sex"));
+                user.setUserPhoneNumber(rs.getString("phone_number"));
+                user.setUserMail(rs.getString("mail"));
+                
+                list.add(user);              
+            }
+        }
+        catch(SQLException ex)
+        {
+           System.out.println("SQLException: " + ex.getMessage());
+           System.out.println("SQLState: " + ex.getSQLState());
+           System.out.println("VendorError: " + ex.getErrorCode());
+           System.out.println("error");
+        }
+        finally
+        {
+            dbManage.close();
+        }
+        return list;
     }
 /*   
    public void debug(String str)
