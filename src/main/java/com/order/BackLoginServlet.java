@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import javax.servlet.ServletException;
 import javax.servlet.RequestDispatcher;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class BackLoginServlet extends HttpServlet
 {
@@ -18,7 +19,14 @@ public class BackLoginServlet extends HttpServlet
         }
         else
         {
-            
+            String action = req.getParameter("action");
+            if("memberlist".equals(action))
+            {
+                UserDao userDao = new UserDao();
+                ArrayList<UserVo> list = userDao.memberList();
+                req.setAttribute("list",list);
+                forward("backMember",req,resp);
+            }
         }
 
         
