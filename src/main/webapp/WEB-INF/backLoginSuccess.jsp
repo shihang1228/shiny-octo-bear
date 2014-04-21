@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>后台登录成功</title>
-<meta http-equiv="refresh" content="3;URL=">
+<meta http-equiv="refresh" content="3;URL=?action=memberlist">
 </head>
 <body>
 <h1 align="center">恭喜您，登录成功！！！</h1>
