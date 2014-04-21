@@ -42,7 +42,7 @@
                 <%for(int i = 0 ; i< list.size(); i ++)
                 {
                     UserVo user = list.get(i);%>
-                <td><a href=""><%=user.getUserId()%></a></td>
+                <td><a href="?action=show&id=<%=user.getUserId()%>"><%=user.getUserId()%></a></td>
                 <td><%=user.getUserName()%></td>
                 <td><%=user.getUserPassword()%></td>
                 <td><%=user.getRepeatPassword()%></td>
