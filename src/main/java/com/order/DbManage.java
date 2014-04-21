@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 
 public class DbManage
 {
@@ -14,6 +15,7 @@ public class DbManage
     public Connection conn = null;
     private ResultSet rs = null;
     private PreparedStatement pstmt = null;
+    private Statement stmt = null;
     private DbManage()
     {
         
@@ -57,6 +59,10 @@ public class DbManage
         
         close(pstmt);
         pstmt = null;
+        
+        close(stmt);
+        stmt = null;
+        
 
     }
     protected Connection createConnection() throws SQLException
