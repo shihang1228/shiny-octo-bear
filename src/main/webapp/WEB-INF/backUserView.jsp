@@ -26,44 +26,30 @@
         </div>
         <div style="width:720px;height:400px; background-color:yellow;position: absolute; left: 450px; top:200px; ">
         <h2 align="center">第<%=user.getUserId()%>号会员</h2>
-            <table border="1"style="position:absolute;left:0px;top:50px;">
+            <table align="center" border="1"style="position:absolute;left:58px;top:50px;">
                 <tr><td align="center" colspan="9">会员管理</td></tr>
                 <tr>
                     <td>ID</td>
-                    <td><%=user.getUserId()%></td>
-                </tr>
-                <tr>
                     <td>用户名</td>
-                    <td><%=user.getUserName()%></td>
-                </tr>
-                <tr>
                     <td>密码</td>
-                    <td><%=user.getUserPassword()%></td>
-                </tr>
-                <tr>
                     <td>确认密码</td>
-                    <td><%=user.getRepeatPassword()%></td>
-                </tr>
-                <tr>                    
                     <td>真实姓名</td>
-                    <td><%=user.getUserTrueName()%></td>
-                </tr>
-                <tr>
                     <td>住址</td>
-                    <td><%=user.getUserAddress()%></td>
-                </tr>
-                <tr>
                     <td>性别</td>
-                    <td><%=user.getUserSex()%></td>
-                </tr>
-                <tr>
                     <td>联系方式</td>
-                    <td><%=user.getUserPhoneNumber()%></td>
-                </tr>
+                    <td>E-mail</td>                    
+                </tr>              
                 <tr>
-                    <td>E-mail</td>
-                    <td><%=user.getUserMail()%></td>
-                </tr> 
+                    <td><%=user.getUserId()%></td>
+                    <td><%=user.getUserName()%></td>
+                    <td><%=user.getUserPassword()%></td>
+                    <td><%=user.getRepeatPassword()%></td>
+                    <td><%=user.getUserTrueName()%></td>
+                    <td><%=user.getUserAddress()%></td>
+                    <td><%=user.getUserSex()%></td>
+                    <td><%=user.getUserPhoneNumber()%></td>
+                    <td><%=user.getUserMail()%></td>                   
+                </tr>
                 <tr>
                 <td align="center" colspan="9"><a href="?action=memberlist">返回</a></td>
                 </tr>
