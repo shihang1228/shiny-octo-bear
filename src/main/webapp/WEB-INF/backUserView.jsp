@@ -1,8 +1,7 @@
 <%@ page pageEncoding="utf-8" contentType="text/html; charset=utf-8"%>
-<%@ page import="java.util.ArrayList,com.order.UserVo"%>
-<%
-    ArrayList<UserVo> list = (ArrayList<UserVo>) (request.getAttribute("list"));
-%>
+<%@ page import="com.order.UserVo"%>
+<% UserVo user = (UserVo)request.getAttribute("user");%>
+
 <html>
     <head>
         <title>会员管理</title>
@@ -26,9 +25,10 @@
             </table>
         </div>
         <div style="width:720px;height:400px; background-color:yellow;position: absolute; left: 450px; top:200px; ">
-            <table border="1"style="position:absolute;left:50px;top:50px;">
-                <tr><td align="center" colspan="10">会员管理</td></tr>
-                <tr align="center">
+        <h2 align="center">第<%=user.getUserId()%>号会员</h2>
+            <table align="center" border="1"style="position:absolute;left:58px;top:50px;">
+                <tr><td align="center" colspan="9">会员管理</td></tr>
+                <tr>
                     <td>ID</td>
                     <td>用户名</td>
                     <td>密码</td>
@@ -37,22 +37,22 @@
                     <td>住址</td>
                     <td>性别</td>
                     <td>联系方式</td>
-                    <td>E-mail</td>                
+                    <td>E-mail</td>                    
+                </tr>              
+                <tr>
+                    <td><%=user.getUserId()%></td>
+                    <td><%=user.getUserName()%></td>
+                    <td><%=user.getUserPassword()%></td>
+                    <td><%=user.getRepeatPassword()%></td>
+                    <td><%=user.getUserTrueName()%></td>
+                    <td><%=user.getUserAddress()%></td>
+                    <td><%=user.getUserSex()%></td>
+                    <td><%=user.getUserPhoneNumber()%></td>
+                    <td><%=user.getUserMail()%></td>                   
                 </tr>
-                <%for(int i = 0 ; i< list.size(); i ++)
-                {
-                    UserVo user = list.get(i);%>
-                <td><a href="?action=show&id=<%=user.getUserId()%>"><%=user.getUserId()%></a></td>
-                <td><%=user.getUserName()%></td>
-                <td><%=user.getUserPassword()%></td>
-                <td><%=user.getRepeatPassword()%></td>
-                <td><%=user.getUserTrueName()%></td>
-                <td><%=user.getUserAddress()%></td>
-                <td><%=user.getUserSex()%></td>
-                <td><%=user.getUserPhoneNumber()%></td>
-                <td><%=user.getUserMail()%></td>
+                <tr>
+                <td align="center" colspan="9"><a href="?action=memberlist">返回</a></td>
                 </tr>
-                <%}%>
             </table>
         </div>
        <div style="width:990px;height:100px; background-color:grey;text-transform:uppercase;font-wehtht:bold;position: absolute; left:180px; top:600px; "></div>

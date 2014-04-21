@@ -27,6 +27,17 @@ public class BackLoginServlet extends HttpServlet
                 req.setAttribute("list",list);
                 forward("backMember",req,resp);
             }
+            else
+            {
+                if("show".equals(action))
+                {
+                    Long pid = Long.valueOf(req.getParameter("id"));
+                    UserDao userDao = new UserDao();
+                    UserVo user = userDao.getMemberById(pid);
+                    req.setAttribute("user",user);
+                    forward("backUserView",req,resp);               
+                }
+            }
         }
 
         

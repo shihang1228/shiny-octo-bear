@@ -34,6 +34,7 @@ public class UserDao
                         +"(user_name,password,repeat_password,true_name,address,sex,phone_number,mail)"
                         + "VALUES(?,?,?,?,?,?,?,?)";
             pstmt = dbManage.conn.prepareStatement(sql);
+            System.out.println(sql);
             pstmt.setString(1,userName);
             pstmt.setString(2,userPassword);
             pstmt.setString(3,repeatPassword);
@@ -63,7 +64,6 @@ public class UserDao
     public ArrayList<UserVo> memberList()
     {
         DbManage dbManage = null;
-        Connection conn = null;
         Statement stmt = null;
         ResultSet rs = null;
         UserVo user = null;
@@ -76,6 +76,7 @@ public class UserDao
             String sql = "SELECT * FROM member_info";
             
             rs = stmt.executeQuery(sql);
+            System.out.println(sql);
             while(rs.next())
             {
                 user = new UserVo();
@@ -105,6 +106,47 @@ public class UserDao
             dbManage.close();
         }
         return list;
+    }
+    public UserVo getMemberById(Long pid)
+    {
+        DbManage dbManage = null;
+        PreparedStatement pstmt = null;
+        Connection conn = null;
+        ResultSet rs = null;
+        UserVo user = null;
+        try
+        {
+            dbManage = dbManage.newInstance();
+            String sql = "SELECT * FROM member_info WHERE user_id = ?";
+            pstmt = dbManage.conn.prepareStatement(sql);
+            System.out.println(sql);
+            pstmt.setLong(1,pid);
+            rs = pstmt.executeQuery();
+            rs.next();
+            user = new UserVo();
+            user.setUserId(rs.getLong("user_id"));
+            user.setUserName(rs.getString("user_name"));
+            user.setUserPassword(rs.getString("password"));
+            user.setRepeatPassword(rs.getString("repeat_password"));
+            user.setUserTrueName(rs.getString("true_name"));
+            user.setUserAddress(rs.getString("address"));
+            user.setUserSex(rs.getString("sex"));
+            user.setUserPhoneNumber(rs.getString("phone_number"));
+            user.setUserMail(rs.getString("mail"));           
+        }
+        catch(SQLException ex)
+        {
+            System.out.println("SQLException: " + ex.getMessage());
+            System.out.println("SQLState: " + ex.getSQLState());
+            System.out.println("VendorError: " + ex.getErrorCode());
+            System.out.println("error");
+        }
+        finally
+        {
+            dbManage.close();
+        }
+        return user;
+        
     }
 /*   
    public void debug(String str)
