@@ -195,7 +195,6 @@ public class UserDao
             pstmt = dbManage.conn.prepareStatement(sql);
             pstmt.setLong(1,user.getUserId());
             pstmt.execute();
-            System.out.println(user.getUserId());
             System.out.println(sql);
         }
         catch(SQLException ex)
