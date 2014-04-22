@@ -41,6 +41,15 @@ public class BackLoginServlet extends HttpServlet
             req.setAttribute("user",user);
             forward("backUserUpdate",req,resp);    
         }
+        else if("userDelete".equals(action))
+        {
+            Long pid = Long.valueOf(req.getParameter("id"));
+            UserDao userDao = new UserDao();
+            UserVo user = userDao.getMemberById(pid);
+            req.setAttribute("user",user);
+            forward("backUserDelete",req,resp);
+        }
+        
                 
     }
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException,IOException
@@ -82,6 +91,16 @@ public class BackLoginServlet extends HttpServlet
             
             req.setAttribute("flash_message","update id=" + user.getUserId() + " success!!!");
             forward("updateResult",req,resp);
+           
+        }
+        else if("userDelete".equals(action))
+        {
+            System.out.println(action);
+            UserVo user = new UserVo();
+            user.setUserId(Long.valueOf(req.getParameter("id")));
+            UserDao userDao = new UserDao();
+            userDao.deleteUser(user);   
+            System.out.println(user.getUserId());
         }
         
     }
