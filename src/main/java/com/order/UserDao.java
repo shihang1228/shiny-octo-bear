@@ -182,6 +182,34 @@ public class UserDao
             dbManage.close();
         }
     }
+    public void deleteUser(UserVo user)
+    {
+        DbManage dbManage = null;
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        
+        try
+        {
+            dbManage = dbManage.newInstance();
+            String sql = "DELETE FROM member_info WHERE user_id=?";
+            pstmt = dbManage.conn.prepareStatement(sql);
+            pstmt.setLong(1,user.getUserId());
+            pstmt.execute();
+            System.out.println(user.getUserId());
+            System.out.println(sql);
+        }
+        catch(SQLException ex)
+        {
+            System.out.println("SQLException: " + ex.getMessage());
+            System.out.println("SQLState: " + ex.getSQLState());
+            System.out.println("VendorError: " + ex.getErrorCode());
+            System.out.println("error");
+        }
+        finally
+        {
+            dbManage.close();
+        }
+    }
 /*   
    public void debug(String str)
     {
