@@ -26,8 +26,8 @@
             </table>
         </div>
         <div style="width:720px;height:400px; background-color:yellow;position: absolute; left: 450px; top:200px; ">
-            <table border="1"style="position:absolute;left:50px;top:50px;">
-                <tr><td align="center" colspan="10">会员管理</td></tr>
+            <table border="1"style="position:absolute;left:5px;top:50px;">
+                <tr><td align="center" colspan="12">会员管理</td></tr>
                 <tr align="center">
                     <td>ID</td>
                     <td>用户名</td>
@@ -37,7 +37,8 @@
                     <td>住址</td>
                     <td>性别</td>
                     <td>联系方式</td>
-                    <td>E-mail</td>                
+                    <td>E-mail</td>
+                    <td align="center" colspan="2">操作</td>
                 </tr>
                 <%for(int i = 0 ; i< list.size(); i ++)
                 {
@@ -51,6 +52,8 @@
                 <td><%=user.getUserSex()%></td>
                 <td><%=user.getUserPhoneNumber()%></td>
                 <td><%=user.getUserMail()%></td>
+                <td><a href="?action=userUpdate&id=<%=user.getUserId()%>">修改</a></td>
+                <td><a href="?action=userDelete&id=<%=user.getUserId()%>">删除</a></td>
                 </tr>
                 <%}%>
             </table>
