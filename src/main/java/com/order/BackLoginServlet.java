@@ -79,6 +79,9 @@ public class BackLoginServlet extends HttpServlet
             
             UserDao userDao = new UserDao();
             userDao.userUpdate(user);
+            
+            req.setAttribute("flash_message","update id=" + user.getUserId() + " success!!!");
+            forward("updateResult",req,resp);
         }
         
     }
