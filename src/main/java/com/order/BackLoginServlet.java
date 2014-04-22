@@ -90,17 +90,17 @@ public class BackLoginServlet extends HttpServlet
             userDao.userUpdate(user);
             
             req.setAttribute("flash_message","update id=" + user.getUserId() + " success!!!");
-            forward("updateResult",req,resp);
+            forward("result",req,resp);
            
         }
         else if("userDelete".equals(action))
         {
-            System.out.println(action);
             UserVo user = new UserVo();
             user.setUserId(Long.valueOf(req.getParameter("id")));
             UserDao userDao = new UserDao();
             userDao.deleteUser(user);   
-            System.out.println(user.getUserId());
+            req.setAttribute("delete_message","delete id =  " + user.getUserId() + "  success!!!");
+            forward("result",req,resp);
         }
         
     }
