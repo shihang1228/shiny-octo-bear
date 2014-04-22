@@ -57,8 +57,7 @@ public class UserDao
         {
             dbManage.close();
         }
-        
-        
+               
     }
     
     public ArrayList<UserVo> memberList()
@@ -147,6 +146,41 @@ public class UserDao
         }
         return user;
         
+    }
+    public void userUpdate(UserVo user)
+    {
+        DbManage dbManage = null;
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        try
+        {
+            dbManage = dbManage.newInstance();
+            String sql = "UPDATE member_info SET user_name=?,password=?,repeat_password=?,true_name=?,"
+            +"address=?,sex=?,phone_number=?,mail=? where user_id=?";
+            pstmt = dbManage.conn.prepareStatement(sql);
+            pstmt.setString(1,user.getUserName());
+            pstmt.setString(2,user.getUserPassword());
+            pstmt.setString(3,user.getRepeatPassword());
+            pstmt.setString(4,user.getUserTrueName());
+            pstmt.setString(5,user.getUserAddress());
+            pstmt.setString(6,user.getUserSex());
+            pstmt.setString(7,user.getUserPhoneNumber());
+            pstmt.setString(8,user.getUserMail());
+            pstmt.setLong(9,user.getUserId());
+            pstmt.execute();
+            System.out.println(sql);
+        }
+        catch(SQLException ex)
+        {
+            System.out.println("SQLException: " + ex.getMessage());
+            System.out.println("SQLState: " + ex.getSQLState());
+            System.out.println("VendorError: " + ex.getErrorCode());
+            System.out.println("error");
+        }
+        finally
+        {
+            dbManage.close();
+        }
     }
 /*   
    public void debug(String str)
