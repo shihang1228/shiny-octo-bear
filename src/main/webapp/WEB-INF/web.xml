@@ -29,6 +29,15 @@
     <url-pattern>/backlogin</url-pattern>
     </servlet-mapping>
     
+    <servlet>
+    <servlet-name>logout</servlet-name>
+    <servlet-class>com.order.Logout</servlet-class>
+    </servlet>
+    <servlet-mapping>
+    <servlet-name>logout</servlet-name>
+    <url-pattern>/auth/logout</url-pattern>
+    </servlet-mapping>
+    
     <filter>
         <filter-name>pageEncoding</filter-name>
         <filter-class>com.order.PageEncodingFilter</filter-class>
