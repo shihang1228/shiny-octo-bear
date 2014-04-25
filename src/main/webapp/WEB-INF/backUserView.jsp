@@ -9,7 +9,7 @@
     <body leftmargin=180px topmargin =50px   backgroud=red>
         <div style="width:990px;height:150px; background-color:blue;text-transform:uppercase;font-weight:bold;"></div>
         <div style="width:990px;height:50px; background-color:green;text-transform:uppercase;font-weight:bold;position: absolute; left: 180px; top:150px;">
-            <%@ page include file="showLogInfo.jsp"%>
+            <%@ include file="showLogInfo.jsp"%>
         </div>
         <div style="width:250px;height:400px; background-color:red;text-transform:uppercase;font-wehtht:bold;position: absolute; left: 180px; top:200px; ">
             <table align="center" style="position:absolute; left:80px;top:30px;">
