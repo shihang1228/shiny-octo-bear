@@ -49,21 +49,14 @@ public class LoginServlet extends HttpServlet
         {
             if("登录".equals(action))
             {
-                UserVo user = new UserVo();
                 
-                user.setUserName(req.getParameter("login_user_name"));
-                user.setUserPassword(req.getParameter("login_password"));
-                
-                String loginUserName = user.getUserName();
-                String loginPassword = user.getUserPassword();
-                System.out.println(loginUserName);
-                System.out.println(loginPassword);
+                String loginUserName = req.getParameter("login_user_name");
+                String loginPassword = req.getParameter("login_password");
 
                 if(loginUserName.equals("admin") && loginPassword.equals("abc"))
                 {
                     HttpSession session = req.getSession();
                     session.setAttribute("memberId",0L);
-                    req.setAttribute("user",user);
                     forward("loginSuccess",req,resp);      
                 }
                 else
@@ -71,16 +64,6 @@ public class LoginServlet extends HttpServlet
                     forward("loginFailed",req,resp);
                 }
              
-                if(loginUserName.equals("admin") && loginPassword.equals("abc"))
-                {
-                    HttpSession session = req.getSession();
-                    session.setAttribute("memberId",0L);
-                    forward("loginSuccess",req,resp);                  
-                }
-                else
-                {
-                    forward("loginFailed",req,resp);
-                }
             }
         }
     }
@@ -91,4 +74,3 @@ public class LoginServlet extends HttpServlet
         getServletContext().getRequestDispatcher(jsp).forward(req,resp);
     }
 }
- 
