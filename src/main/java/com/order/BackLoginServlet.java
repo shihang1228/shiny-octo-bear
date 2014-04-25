@@ -64,7 +64,9 @@ public class BackLoginServlet extends HttpServlet
             {
                 HttpSession session = req.getSession();
                 session.setAttribute("memberId",0L);
-                forward("backLoginSuccess",req,resp);
+                session.setAttribute("username",userName);
+                req.setAttribute("login_success","恭喜你，登录成功");
+                forward("result",req,resp);
             }
             else 
             {
