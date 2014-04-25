@@ -5,6 +5,14 @@
         <meta http-equiv="refresh" content="3;url=?action=memberlist"/>
     </head>
     <body>
+    
+        <h2 align="center"><% String loginSuccess = (String)request.getAttribute("login_success");
+                            if(loginSuccess != null)
+                            {
+                                out.println(loginSuccess);
+                            }
+                            %>
+    
         <h2 align="center"><% String message = (String)request.getAttribute("flash_message");
                             if(message != null)   
                             {
