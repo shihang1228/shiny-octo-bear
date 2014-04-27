@@ -6,12 +6,25 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.ServletException;
 import javax.servlet.RequestDispatcher;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class FoodTypeServlet extends HttpServlet
 {
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException,ServletException
     {
-        forward("addFoodType",req,resp);        
+        String action = req.getParameter("action");
+        if("foodTypeList".equals(action))
+        {
+            FoodTypeDao foodTypeDao = new FoodTypeDao();
+            ArrayList<FoodTypeVo> foodList = foodTypeDao.foodTypeList();
+            req.setAttribute("foodList",foodList);
+            forward("foodTypeList",req,resp);
+        }
+        else
+        {
+            forward("addFoodType",req,resp);
+        }            
+        
     }
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException,ServletException
     {
