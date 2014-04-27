@@ -25,7 +25,7 @@
         </div>
         <div style="width:720px;height:400px; background-color:yellow;position: absolute; left: 450px; top:200px; ">
             <table border="1"style="position:absolute;left:5px;top:50px;">
-                <tr><td align="center" colspan="4">菜系管理</td></tr>
+                <tr><td align="center" colspan="5">菜系管理</td></tr>
                 <tr align="center">
                     <td>菜系ID号</td>
                     <td>菜系名称</td>
