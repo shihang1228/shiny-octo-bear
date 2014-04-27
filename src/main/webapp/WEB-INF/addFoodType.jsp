@@ -35,7 +35,7 @@
                     <td align="left"><textarea cols="10" rows="3" name="food_description"></textarea></td>
                 </tr>
                 <tr>  
-                    <td align="center" colspan="2"><input type="submit" name="action" value="添加"/></td>
+                    <td align="center" colspan="2"><input type="submit" name="action" value="添加"/>&nbsp &nbsp <a href="?action=foodTypeList">返回列表</a></td>
                 </tr>
             </table>
         </form>
