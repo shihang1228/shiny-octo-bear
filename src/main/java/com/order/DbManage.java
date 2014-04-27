@@ -9,7 +9,7 @@ import java.sql.Statement;
 
 public class DbManage
 {
-    static final String jdbcUrl = "jdbc:mysql://localhost/test?" + "user=root" + "&password=";
+    static final String jdbcUrl = "jdbc:mysql://localhost/test?" + "user=root" + "&password="+"&useUnicode=true&characterEncoding=utf-8";
     static final String jdbcDriver = "com.mysql.jdbc.Driver";
     
     public Connection conn = null;
