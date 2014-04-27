@@ -21,21 +21,30 @@
     </servlet-mapping>
     
     <servlet>
-    <servlet-name>backlogin</servlet-name>
-    <servlet-class>com.order.BackLoginServlet</servlet-class>
+        <servlet-name>backlogin</servlet-name>
+        <servlet-class>com.order.BackLoginServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-    <servlet-name>backlogin</servlet-name>
-    <url-pattern>/backlogin</url-pattern>
+        <servlet-name>backlogin</servlet-name>
+        <url-pattern>/backlogin</url-pattern>
     </servlet-mapping>
     
     <servlet>
-    <servlet-name>logout</servlet-name>
-    <servlet-class>com.order.Logout</servlet-class>
+        <servlet-name>logout</servlet-name>
+        <servlet-class>com.order.Logout</servlet-class>
     </servlet>
     <servlet-mapping>
-    <servlet-name>logout</servlet-name>
-    <url-pattern>/auth/logout</url-pattern>
+        <servlet-name>logout</servlet-name>
+        <url-pattern>/auth/logout</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>foodType</servlet-name>
+        <servlet-class>com.order.FoodTypeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>foodType</servlet-name>
+        <url-pattern>/foodtype</url-pattern>
     </servlet-mapping>
     
     <filter>
