@@ -4,6 +4,8 @@ import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 public class FoodTypeDao
 {
@@ -34,5 +36,44 @@ public class FoodTypeDao
         {
             dbManage.close();
         }
+    }
+    public ArrayList<FoodTypeVo> foodTypeList()
+    {
+        DbManage dbManage = null;
+        ResultSet rs =null;
+        Statement stmt = null;
+        FoodTypeVo foodType = null;
+        ArrayList<FoodTypeVo> foodList = new ArrayList<FoodTypeVo>();
+        try
+        {
+            dbManage = dbManage.newInstance();
+            stmt = dbManage.conn.createStatement();
+            String sql = "SELECT * FROM food_type";
+            rs = stmt.executeQuery(sql);
+            System.out.println(sql);
+            while(rs.next())
+            {
+                foodType = new FoodTypeVo();
+                foodType.setFoodId(rs.getLong("id"));
+                foodType.setFoodTypeName(rs.getString("food_type_name"));
+                foodType.setFoodDescription(rs.getString("description"));
+                
+                foodList.add(foodType);
+            }
+        }
+        catch(SQLException ex)
+        {
+            System.out.println("SQLException: " + ex.getMessage());
+            System.out.println("SQLState: " + ex.getSQLState());
+            System.out.println("VendorError: " + ex.getErrorCode());
+            System.out.println("error");
+        }
+        finally
+        {
+            dbManage.close();
+        }
+        return foodList;
+        
+        
     }
 }
