@@ -76,4 +76,40 @@ public class FoodTypeDao
         
         
     }
+    public FoodTypeVo getFoodTypeById(Long pid)
+    {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        DbManage dbManage = null;
+        ResultSet rs = null;
+        FoodTypeVo foodType = null;
+        try
+        {
+            dbManage = dbManage.newInstance();
+            foodType = new FoodTypeVo();
+            String sql = "SELECT * FROM food_type WHERE id =?";
+            pstmt = dbManage.conn.prepareStatement(sql);
+            pstmt.setLong(1,pid);
+            rs = pstmt.executeQuery();
+            System.out.println(sql);
+            rs.next();
+            foodType.setFoodId(rs.getLong("id"));
+            foodType.setFoodTypeName(rs.getString("food_type_name"));
+            foodType.setFoodDescription(rs.getString("description"));
+            
+        }
+        catch(SQLException ex)
+        {
+            System.out.println("SQLException: " + ex.getMessage());
+            System.out.println("SQLState: " + ex.getSQLState());
+            System.out.println("VendorError: " + ex.getErrorCode());
+            System.out.println("error");
+        }
+        finally
+        {
+            dbManage.close();
+        }
+        return foodType;
+    }
+    
 }
