@@ -22,7 +22,7 @@
             </table>
         </div>
         <div style="width:250px;height:450px; background-color:red;text-transform:uppercase;font-wehtht:bold;position: absolute; left: 180px; top:200px; ">
-            Welcome,&nbsp;&nbsp;<%= user.getUserName() %>
+        欢迎
         </div>
         <div style="width:250px;height:450px; background-color:green;text-transform:uppercase;font-wehtht:bold;position: absolute; left: 180px; top:400px; ">
             <div style="width:250px;height:40px;background-color:pink;text-transform:uppercase;font-wehtht:bold;position:absolute;left:0px;top:0px;">

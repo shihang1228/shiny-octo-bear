@@ -1,4 +1,4 @@
-<%@ page pageEncoding="utf-8" contentType="text/html; charset=utf-8"%>
+<%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
 <html>
 <head>
 <title>后台登录成功</title>

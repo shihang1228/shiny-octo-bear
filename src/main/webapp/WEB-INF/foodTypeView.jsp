@@ -1,11 +1,9 @@
 <%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
-<%@ page import="java.util.ArrayList,com.order.UserVo"%>
-<%
-    ArrayList<UserVo> list = (ArrayList<UserVo>) (request.getAttribute("list"));
-%>
+<%@ page import="com.order.FoodTypeVo"%>
+<% FoodTypeVo foodType = (FoodTypeVo)request.getAttribute("showFoodType");%>
 <html>
     <head>
-        <title>会员管理</title>
+        <title>指定菜系</title>
     </head>
     <body leftmargin=180px topmargin =50px   backgroud=red>
         <div style="width:990px;height:150px; background-color:blue;text-transform:uppercase;font-weight:bold;"></div>
@@ -26,36 +24,23 @@
             </table>
         </div>
         <div style="width:720px;height:400px; background-color:yellow;position: absolute; left: 450px; top:200px; ">
-            <table border="1"style="position:absolute;left:5px;top:50px;">
-                <tr><td align="center" colspan="12">会员管理</td></tr>
-                <tr align="center">
-                    <td>ID</td>
-                    <td>用户名</td>
-                    <td>密码</td>
-                    <td>确认密码</td>
-                    <td>真实姓名</td>
-                    <td>住址</td>
-                    <td>性别</td>
-                    <td>联系方式</td>
-                    <td>E-mail</td>
-                    <td align="center" colspan="2">操作</td>
+        <h2 align="center">第<%=foodType.getFoodId()%>号菜系</h2>
+            <table align="center" border="1"style="position:absolute;left:58px;top:50px;">
+                <tr><td align="center" colspan="3">会员管理</td></tr>
+                <tr>
+                    <td>菜系ID号</td>
+                    <td>菜系名称</td>
+                    <td>菜系描述</td>                    
+                </tr>              
+                <tr>
+                    <td><%=foodType.getFoodId()%></td>
+                    <td><%=foodType.getFoodTypeName()%></td>
+                    <td><%=foodType.getFoodDescription()%></td>
+                                   
                 </tr>
-                <%for(int i = 0 ; i< list.size(); i ++)
-                {
-                    UserVo user = list.get(i);%>
-                <td><a href="?action=show&id=<%=user.getUserId()%>"><%=user.getUserId()%></a></td>
-                <td><%=user.getUserName()%></td>
-                <td><%=user.getUserPassword()%></td>
-                <td><%=user.getRepeatPassword()%></td>
-                <td><%=user.getUserTrueName()%></td>
-                <td><%=user.getUserAddress()%></td>
-                <td><%=user.getUserSex()%></td>
-                <td><%=user.getUserPhoneNumber()%></td>
-                <td><%=user.getUserMail()%></td>
-                <td><a href="?action=userUpdate&id=<%=user.getUserId()%>">修改</a></td>
-                <td><a href="?action=userDelete&id=<%=user.getUserId()%>">删除</a></td>
+                <tr>
+                <td align="center" colspan="3"><a href="?action=foodTypeList">返回菜系列表</a></td>
                 </tr>
-                <%}%>
             </table>
         </div>
        <div style="width:990px;height:100px; background-color:grey;text-transform:uppercase;font-wehtht:bold;position: absolute; left:180px; top:600px; "></div>

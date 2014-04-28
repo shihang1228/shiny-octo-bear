@@ -1,4 +1,4 @@
-<%@ page pageEncoding="utf-8" contentType="text/html; charset=utf-8"%>
+<%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
 <%@ page import="com.order.UserVo"%>
 <% UserVo user = (UserVo)request.getAttribute("user");%>
 
