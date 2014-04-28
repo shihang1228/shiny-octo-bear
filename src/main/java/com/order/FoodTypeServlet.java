@@ -20,6 +20,14 @@ public class FoodTypeServlet extends HttpServlet
             req.setAttribute("foodList",foodList);
             forward("foodTypeList",req,resp);
         }
+        else if("showFoodTye".equals(action))
+        {
+            Long pid = Long.valueOf(req.getParameter("foodTypeId"));
+            FoodTypeDao foodTypeDao = new FoodTypeDao();
+            FoodTypeVo foodType = foodTypeDao.getFoodTypeById(pid);
+            req.setAttribute("showFoodType",foodType);
+            forward("foodTypeView",req,resp);
+        }
         else
         {
             forward("addFoodType",req,resp);
