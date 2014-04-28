@@ -1,4 +1,4 @@
-<%@ page pageEncoding="UTF-8" contentType="text/html; charset=utf-8"%>
+<%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.util.ArrayList,com.order.FoodTypeVo"%>
 <% ArrayList<FoodTypeVo> foodList = (ArrayList<FoodTypeVo>)(request.getAttribute("foodList"));%>
 <html>
@@ -36,7 +36,7 @@
                 {
                     FoodTypeVo foodType = foodList.get(i);%>
                     <tr>
-                    <td><%=foodType.getFoodId()%></td>
+                    <td><a href="?action=showFoodTye&foodTypeId=<%=foodType.getFoodId()%>"><%=foodType.getFoodId()%></a></td>
                     <td><%=foodType.getFoodTypeName()%></td>
                     <td><%=foodType.getFoodDescription()%></td>
                     <td><a href="">修改</a></td>
